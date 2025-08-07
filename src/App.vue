@@ -1,15 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button @click="showPopup = true">Show Popup</button>
+  <LowTickPopup v-show="showPopup" @close="closePopup" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LowTickPopup from './components/Mopup.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LowTickPopup,
+  },
+  data() {
+    return {
+      showPopup: false,
+    }
+  },
+  methods: {
+    closePopup(name) {
+      this.showPopup = false
+      console.log('name', name)
+    }
   }
 }
 </script>
